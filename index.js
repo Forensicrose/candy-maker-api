@@ -9,7 +9,7 @@ app.get('/manufacturers/:name', getManufacturersById)
 
 app.get('/products', getAllProductsWithManufacturers)
 
-app.get('/products/:id', getProductsById)
+app.get('/products/:name', getProductsById)
 
 app.listen(1337, () => {
   // eslint-disable-next-line no-console

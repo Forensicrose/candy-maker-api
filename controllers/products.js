@@ -9,10 +9,19 @@ const getAllProductsWithManufacturers = async (req, res) => {
 }
 
 const getProductsById = async (req, res) => {
-  const { id } = req.params
+  const { name } = req.params
+
   const product = await models.Products.findOne({
-    where: { id },
-    include: [{ model: models.Manufacturers }]
+    attributes: ['id', 'name', 'yearIntroduced'],
+    where: {
+      name: {
+        [models.Op.like]: `%${name}%`
+      }
+    },
+    include: [{
+      model: models.Manufacturers,
+      attributes: ['id', 'name', 'country']
+    }]
   })
 
   return product
