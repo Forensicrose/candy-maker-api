@@ -5,7 +5,7 @@ const { getAllProductsWithManufacturers, getProductsById } = require('./controll
 
 app.get('/manufacturers', getAllManufacturersWithProducts)
 
-app.get('/manufacturers/:id', getManufacturersById)
+app.get('/manufacturers/:name', getManufacturersById)
 
 app.get('/products', getAllProductsWithManufacturers)
 
